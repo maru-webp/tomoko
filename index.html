@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ボタンで音声再生 & 現在時刻表示</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        #currentTime {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            cursor: pointer;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <img src="nanji_01.png" height="150px">
+        <h1>現在時刻</h1>
+        <p id="currentTime"></p>
+
+        <h2>音声再生ボタン</h2>
+        <div class="button-container">
+            <button onclick="playSound('sound1')">朝ごはん</button>
+            <button onclick="playSound('sound2')">くすり</button>
+            <button onclick="playSound('sound3')">らびゅ３</button>
+        </div>
+
+        <!-- 音声ファイルを追加 -->
+        <audio id="sound1" src="voice\01_asagohan.m4a"></audio>
+        <audio id="sound2" src="voice\02_kusuri.m4a"></audio>
+        <audio id="sound3" src="voice\03_rabyu3.m4a"></audio>
+
+    </div>
+
+    <script>
+        // 現在時刻を表示する関数
+        function updateTime() {
+            const currentTimeElement = document.getElementById('currentTime');
+            const now = new Date();
+            const timeString = now.toLocaleTimeString();
+            currentTimeElement.textContent = timeString;
+        }
+
+        // ページ読み込み時、毎秒ごとに時間を更新
+        setInterval(updateTime, 1000);
+
+        // 音声を再生する関数
+        function playSound(soundId) {
+            const audioElement = document.getElementById(soundId);
+            audioElement.play();
+        }
+    </script>
+</body>
+</html>
