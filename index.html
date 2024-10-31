@@ -8,7 +8,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background-color: #f0f0f0;
+            background-color: #ffffff;
             margin: 0;
             padding: 0;
         }
@@ -43,9 +43,28 @@
             border: none;
             border-radius: 5px;
         }
+        button.button-1 {
+            background-color: #000bda;
+            color: white;
+        }
+        button.button-2 {
+            background-color: #05b22b;
+            color: white;
+        }
+
+        button.button-3 {
+            background-color: #eb29b4;
+            color: white;
+        }
+
+        button.button-4 {
+            background-color: #ff0000;
+            color: white;
+        }
+
 
         button:hover {
-            background-color: #0056b3;
+            background-color: #3e3e3e;
         }
     </style>
 </head>
@@ -58,15 +77,26 @@
 
         <h2>音声再生ボタン</h2>
         <div class="button-container">
-            <button onclick="playSound('sound1')">朝ごはん</button>
-            <button onclick="playSound('sound2')">くすり</button>
-            <button onclick="playSound('sound3')">らびゅ３</button>
+            <button class="button-1" onclick="playSound('sound1')">ハーフ 長め</button><br>
+            <audio id="sound1" src="voice\01.m4a" controls></audio>
+        </div>
+        <div class="button-container">
+            <button class="button-2" onclick="playSound('sound2')">ハーフ 短め</button><br>
+            <audio id="sound2" src="voice\02.m4a" controls></audio>
         </div>
 
+        <div class="button-container">
+            <button class="button-3" onclick="playSound('sound3')">ゴール制限時間 後</button><br>
+            <audio id="sound3" src="voice\03.m4a" controls></audio>
+        </div>
+
+        <div class="button-container">
+            <button class="button-4" onclick="playSound('sound4')">ゴール制限時間 終了後</button>
+            <audio id="sound4" src="voice\04.m4a" controls></audio>
+        </div>
+
+
         <!-- 音声ファイルを追加 -->
-        <audio id="sound1" src="voice\01_asagohan.m4a"></audio>
-        <audio id="sound2" src="voice\02_kusuri.m4a"></audio>
-        <audio id="sound3" src="voice\03_rabyu3.m4a"></audio>
 
     </div>
 
